@@ -14,7 +14,7 @@ async function generateJoke() {
     }
 }
 
-function addJoke(joke){
+function addJoke({joke}){
    const jokeElement = document.querySelector('#joke')
    if(jokeElement){
        jokeElement.textContent = joke
@@ -33,10 +33,10 @@ async function createJoke(e){
     },
     body: JSON.stringify(data)
    }
-   const responce = await fetch(`https://mom-joke-api-project1.onrender.com`, options)
-    if(responce.status ==201){
+   const response = await fetch(`https://mom-joke-api-project1.onrender.com`, options)
+    if(response.status ==201){
         console.log('Joke added')
-        e.target.name.value = ''
+        e.target.joke.value = ''
         alert('Joke added')
     }else{
         alert('Something went wrong')
