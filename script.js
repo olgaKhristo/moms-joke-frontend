@@ -25,7 +25,7 @@ function addJoke({joke}){
 
 async function createJoke(e){
    e.preventDefault()
-   const data = {joke: e.target.joke.value}
+   const data = {joke: e.target.joke}
    const options = {
     method: 'POST',
     headers: {
@@ -36,7 +36,7 @@ async function createJoke(e){
    const response = await fetch(`https://mom-joke-api-project1.onrender.com`, options)
     if(response.status ==201){
         console.log('Joke added')
-        e.target.joke.value = ''
+        e.target.joke = ''
         alert('Joke added')
     }else{
         alert('Something went wrong')
